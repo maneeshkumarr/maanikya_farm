@@ -1,0 +1,134 @@
+@import 'tailwindcss';
+
+/* Master design tokens — mirrored in @theme for Tailwind utilities */
+:root {
+  --color-forest: #073d27;
+  --color-deep-green: #102f23;
+  --color-gold: #b98527;
+  --color-gold-light: #d4ae61;
+  --color-ivory: #f8f4ea;
+  --color-cream: #f1ebdd;
+  --color-card: #fcfaf5;
+  --color-white: #ffffff;
+  --color-text: #30332e;
+  --color-muted: #77766d;
+  --color-border: #e9e1d2;
+  --color-gold-border: #d8c7a4;
+  --color-header-border: #e8e0d0;
+  --color-nav: #20231f;
+  --color-active: #8f5c12;
+  --color-social: #a87520;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --content-width: 1360px;
+  --page-padding: 6%;
+  --section-space: 56px;
+  --card-radius: 10px;
+  --button-radius: 999px;
+}
+
+@theme {
+  --color-forest: #073d27;
+  --color-deep-green: #102f23;
+  --color-gold: #b98527;
+  --color-gold-light: #d4ae61;
+  --color-warm-gold: #d4ae61;
+  --color-ivory: #f8f4ea;
+  --color-cream: #f1ebdd;
+  --color-card: #fcfaf5;
+  --color-text: #30332e;
+  --color-muted: #77766d;
+  --color-border: #e9e1d2;
+  --color-gold-border: #d8c7a4;
+  --color-nav: #20231f;
+  --color-active: #8f5c12;
+  --color-social: #a87520;
+  --color-header-border: #e8e0d0;
+  --color-contact-muted: #f0ebdd;
+
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --radius-card: 10px;
+  --radius-button: 999px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory font-sans text-text antialiased;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1360px] px-5 md:px-8;
+    padding-inline: max(1.25rem, var(--page-padding));
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-gold;
+  }
+
+  .section-eyebrow-line {
+    @apply mt-1 flex items-center gap-3;
+  }
+
+  .section-eyebrow-line::after {
+    content: '';
+    @apply h-px w-12 bg-gold-light/80 sm:w-16;
+  }
+
+  .heading-hero {
+    @apply font-serif text-[2.25rem] font-semibold leading-[1.05] tracking-tight text-deep-green sm:text-[2.75rem] lg:text-[3rem];
+  }
+
+  .heading-section {
+    @apply font-serif text-[1.875rem] font-semibold leading-tight tracking-tight text-deep-green sm:text-[2.125rem];
+  }
+
+  .body-text {
+    @apply text-[15px] font-normal leading-[1.55] text-text;
+  }
+
+  .body-text-sm {
+    @apply text-sm leading-normal text-text;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-forest bg-forest px-[22px] py-3 font-sans text-sm font-semibold text-white transition duration-[180ms] ease-out hover:-translate-y-px hover:bg-deep-green focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-accent {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-gold bg-gold px-[22px] py-3 font-sans text-sm font-semibold text-white transition duration-[180ms] ease-out hover:-translate-y-px hover:brightness-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-outline {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-gold bg-transparent px-[22px] py-3 font-sans text-sm font-semibold text-forest transition duration-[180ms] ease-out hover:-translate-y-px hover:bg-gold/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-outline-gold-text {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-gold bg-transparent px-[22px] py-3 font-sans text-sm font-semibold text-active transition duration-[180ms] ease-out hover:-translate-y-px hover:bg-gold/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-cta-ivory {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full border border-ivory bg-ivory px-[22px] py-3 font-sans text-sm font-semibold text-forest shadow-md transition duration-[180ms] ease-out hover:-translate-y-px hover:shadow-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-link {
+    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-active transition hover:text-gold;
+  }
+
+  .hero-image-mask {
+    clip-path: ellipse(92% 96% at 62% 50%);
+  }
+
+  @media (min-width: 1024px) {
+    .hero-image-mask {
+      clip-path: ellipse(88% 98% at 58% 50%);
+    }
+  }
+}
